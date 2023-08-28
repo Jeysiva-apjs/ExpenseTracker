@@ -1,0 +1,67 @@
+.errorMsg {
+  color: red;
+  font-size: 1rem;
+  padding: 0;
+}
+
+#styled-link {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.signInUp {
+  background-color: black;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.title {
+  color: white;
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.textBox {
+  width: 300px;
+}
+
+.data {
+  margin-top: 20px;
+}
+
+.table {
+  margin-top: 10px;
+}
+
+.button {
+  background-color: black;
+}
+
+.appBar {
+  background-color: black;
+}
+
+.formList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.quote {
+  font-weight: 700;
+  font-size: 1rem;
+  color: lightslategray;
+}
