@@ -40,6 +40,7 @@ export default function LoginPage() {
       .then((res) => {
         if (res.data.error) {
           setError(res.data.error);
+          setIsLoading(false);
           return;
         }
         localStorage.setItem("token", res.data.token);
@@ -136,11 +137,9 @@ export default function LoginPage() {
                 }
               />
               {isLoading ? (
-                <>
-                  <Box sx={{ display: "flex" }}>
-                    <CircularProgress />
-                  </Box>
-                </>
+                <Box>
+                  <CircularProgress />
+                </Box>
               ) : (
                 <Button
                   className="button"
