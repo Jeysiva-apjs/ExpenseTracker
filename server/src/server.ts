@@ -6,20 +6,13 @@ import expenseRouter from "./routes/expense";
 import "dotenv/config";
 
 const app = express();
-app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://jeysiva-expense-tracker.vercel.app"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
 app.use(
   cors({
-    origin: ["https://jeysiva-expense-tracker-jeysiva-apjs.vercel.app"],
-    methods: ["POST", "GET", "DELETE"],
+    origin: "https://jeysiva-expense-tracker.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
+    optionsSuccessStatus: 204, // This is important for preflight requests
   })
 );
 app.use(express.json());
