@@ -61,8 +61,8 @@ export default function Chart({ filteredExpenses, filterCategory }: Props) {
 
   const sizing = {
     margin: { right: 5 },
-    width: 200,
-    height: 200,
+    width: 400,
+    height: 400,
     legend: { hidden: true },
   };
 
