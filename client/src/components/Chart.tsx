@@ -47,9 +47,21 @@ export default function Chart({ filteredExpenses, filterCategory }: Props) {
           series={[
             {
               data: [
-                { id: 0, value: values.groceries, label: "Groceries" },
-                { id: 1, value: values.utilities, label: "Utilities" },
-                { id: 2, value: values.entertainment, label: "Entertainment" },
+                {
+                  id: 0,
+                  value: parseFloat(values.groceries.toFixed(1)),
+                  label: "Groceries",
+                },
+                {
+                  id: 1,
+                  value: parseFloat(values.utilities.toFixed(1)),
+                  label: "Utilities",
+                },
+                {
+                  id: 2,
+                  value: parseFloat(values.entertainment.toFixed(1)),
+                  label: "Entertainment",
+                },
               ],
             },
           ]}
