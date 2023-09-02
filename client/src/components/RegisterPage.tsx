@@ -132,17 +132,29 @@ export default function RegisterPage() {
                   })
                 }
               />
-
-              <Button
-                className="button"
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                style={{ backgroundColor: "black" }}
-              >
-                {isLoading ? <CircularProgress /> : "Sign Up"}
-              </Button>
+              {isLoading ? (
+                <Button
+                  className="button"
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  style={{ backgroundColor: "black" }}
+                >
+                  <CircularProgress />
+                </Button>
+              ) : (
+                <Button
+                  className="button"
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  style={{ backgroundColor: "black" }}
+                >
+                  Sign In
+                </Button>
+              )}
 
               <Grid container>
                 <Grid item>
