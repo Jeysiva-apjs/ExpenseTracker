@@ -133,22 +133,17 @@ export default function RegisterPage() {
                 }
               />
 
-              {isLoading ? (
-                <Box>
-                  <CircularProgress />
-                </Box>
-              ) : (
-                <Button
-                  className="button"
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                  style={{ backgroundColor: "black" }}
-                >
-                  Sign Up
-                </Button>
-              )}
+              <Button
+                className="button"
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                style={{ backgroundColor: "black" }}
+              >
+                {isLoading ? "Sign Up" : <CircularProgress />}
+              </Button>
+
               <Grid container>
                 <Grid item>
                   <span id="styled-link" onClick={() => navigate("/")}>

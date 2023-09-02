@@ -136,22 +136,16 @@ export default function LoginPage() {
                   })
                 }
               />
-              {isLoading ? (
-                <Box>
-                  <CircularProgress />
-                </Box>
-              ) : (
-                <Button
-                  className="button"
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                  style={{ backgroundColor: "black" }}
-                >
-                  Sign In
-                </Button>
-              )}
+              <Button
+                className="button"
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                style={{ backgroundColor: "black" }}
+              >
+                {isLoading ? "Sign In" : <CircularProgress />}
+              </Button>
 
               <Grid container>
                 <Grid item>
