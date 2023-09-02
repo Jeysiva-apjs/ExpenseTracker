@@ -1,7 +1,6 @@
-import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
+import { PieChart } from "@mui/x-charts/PieChart";
 import { useEffect, useState } from "react";
 import { ExpenseType } from "./ExpenseTracker";
-import { DefaultizedPieValueType } from "@mui/x-charts";
 
 interface Chart {
   groceries: number;
@@ -41,51 +40,35 @@ export default function Chart({ filteredExpenses, filterCategory }: Props) {
     return;
   }
 
-  const data = [
-    {
-      label: "Groceries",
-      value: values.groceries,
-      color: "#0088FE",
-    },
-    {
-      label: "Utilities",
-      value: values.utilities,
-      color: "#00C49F",
-    },
-    {
-      label: "Entertainment",
-      value: values.entertainment,
-      color: "#FFBB28",
-    },
-  ];
-
-  const sizing = {
-    margin: { right: 5 },
-    width: 400,
-    height: 400,
-    legend: { hidden: true },
-  };
-
-  const getArcLabel = (params: DefaultizedPieValueType) => {
-    return `${params.value.toFixed(0)}%`;
-  };
-
   return (
-    <PieChart
-      series={[
-        {
-          outerRadius: 80,
-          data,
-          arcLabel: getArcLabel,
-        },
-      ]}
-      sx={{
-        [`& .${pieArcLabelClasses.root}`]: {
-          fill: "white",
-          fontSize: 14,
-        },
-      }}
-      {...sizing}
-    />
+    <>
+      <div className="body chart">
+        <PieChart
+          series={[
+            {
+              data: [
+                {
+                  id: 0,
+                  value: parseFloat(values.groceries.toFixed(0)),
+                  label: "Groceries",
+                },
+                {
+                  id: 1,
+                  value: parseFloat(values.utilities.toFixed(0)),
+                  label: "Utilities",
+                },
+                {
+                  id: 2,
+                  value: parseFloat(values.entertainment.toFixed(0)),
+                  label: "Entertainment",
+                },
+              ],
+            },
+          ]}
+          width={200}
+          height={200}
+        />
+      </div>
+    </>
   );
 }
