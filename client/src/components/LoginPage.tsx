@@ -30,7 +30,7 @@ export default function LoginPage() {
 
     axios
       .post(
-        "https://jeysiva-expense-tracker.vercel.app/user/login",
+        "jeysiva-expense-tracker-server-lbsk78y3y-jeysiva-apjs.vercel.app/user/login",
         userDetails
       )
       .then((res) => {
