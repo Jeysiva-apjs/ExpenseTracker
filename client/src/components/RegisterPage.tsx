@@ -141,7 +141,7 @@ export default function RegisterPage() {
                 sx={{ mt: 3, mb: 2 }}
                 style={{ backgroundColor: "black" }}
               >
-                {isLoading ? "Sign Up" : <CircularProgress />}
+                {isLoading ? <CircularProgress /> : "Sign Up"}
               </Button>
 
               <Grid container>

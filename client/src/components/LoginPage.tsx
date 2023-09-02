@@ -144,7 +144,7 @@ export default function LoginPage() {
                 sx={{ mt: 3, mb: 2 }}
                 style={{ backgroundColor: "black" }}
               >
-                {isLoading ? "Sign In" : <CircularProgress />}
+                {isLoading ? <CircularProgress /> : "Sign In"}
               </Button>
 
               <Grid container>
