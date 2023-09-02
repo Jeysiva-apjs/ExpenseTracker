@@ -6,7 +6,13 @@ import expenseRouter from "./routes/expense";
 import "dotenv/config";
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: [""],
+    methods: ["POST", "GET", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 const DB_URL = process.env.DB_URL as string;
