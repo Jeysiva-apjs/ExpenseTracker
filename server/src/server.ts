@@ -20,6 +20,10 @@ app.use(express.json());
 const DB_URL = process.env.DB_URL as string;
 const PORT = process.env.PORT;
 
+app.get("/", (req, res) => {
+  return res.send("Express Typescript on Vercel");
+});
+
 app.use("/user", userRouter);
 app.use("/expense", expenseRouter);
 
