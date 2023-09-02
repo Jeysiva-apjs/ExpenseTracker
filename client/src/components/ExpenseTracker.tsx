@@ -79,7 +79,7 @@ const ExpenseTracker = () => {
 
     axios
       .delete(
-        `https://jeysiva-expense-tracker-server.vercel.app/delete/${id}`,
+        `https://jeysiva-expense-tracker-server.vercel.app/expense/delete/${id}`,
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),

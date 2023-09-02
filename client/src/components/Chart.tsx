@@ -1,4 +1,4 @@
-import { PieChart } from "@mui/x-charts/PieChart";
+import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
 import { useEffect, useState } from "react";
 import { ExpenseType } from "./ExpenseTracker";
 import { DefaultizedPieValueType } from "@mui/x-charts";
@@ -79,6 +79,12 @@ export default function Chart({ filteredExpenses, filterCategory }: Props) {
           arcLabel: getArcLabel,
         },
       ]}
+      sx={{
+        [`& .${pieArcLabelClasses.root}`]: {
+          fill: "white",
+          fontSize: 14,
+        },
+      }}
       {...sizing}
     />
   );
