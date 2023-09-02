@@ -29,7 +29,7 @@ const ExpenseTracker = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/expense/expenses", {
+      .get("https://jeysiva-expense-tracker-server.vercel.app/expenses", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
@@ -45,11 +45,15 @@ const ExpenseTracker = () => {
 
   const handleSubmit = () => {
     axios
-      .post("http://localhost:5000/expense/add", expenseFormData, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
+      .post(
+        "https://jeysiva-expense-tracker-server.vercel.app/add",
+        expenseFormData,
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      )
       .then((res) => {
         if (res.data.error) {
           setError(res.data.error);
@@ -71,7 +75,7 @@ const ExpenseTracker = () => {
     setExpenses(filteredData);
 
     axios
-      .delete(`http://localhost:5000/expense/delete/${id}`, {
+      .delete(`https://jeysiva-expense-tracker-server.vercel.app/${id}`, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },

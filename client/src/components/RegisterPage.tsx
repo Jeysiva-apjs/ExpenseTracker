@@ -28,7 +28,10 @@ export default function RegisterPage() {
     event.preventDefault();
 
     await axios
-      .post("http://localhost:5000/user/signup", userDetails)
+      .post(
+        "https://jeysiva-expense-tracker-server.vercel.app/signup",
+        userDetails
+      )
       .then((res) => {
         if (res.data.error) {
           setError(res.data.error);

@@ -29,7 +29,10 @@ export default function LoginPage() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:5000/user/login", userDetails)
+      .post(
+        "https://jeysiva-expense-tracker-server.vercel.app/login",
+        userDetails
+      )
       .then((res) => {
         if (res.data.error) {
           setError(res.data.error);
