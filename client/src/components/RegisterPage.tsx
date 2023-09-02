@@ -9,6 +9,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
+
 const defaultTheme = createTheme();
 
 interface User {
@@ -22,10 +24,13 @@ export default function RegisterPage() {
     password: "",
   });
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsLoading(true);
 
     await axios
       .post(
@@ -40,9 +45,12 @@ export default function RegisterPage() {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("userName", userDetails.userName);
         navigate("/expense-tracker");
+        setIsLoading(false);
       })
-      .then((res) => console.log(res))
-      .catch((err) => console.error(err.message));
+      .catch((err) => {
+        console.error(err.message);
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -124,16 +132,24 @@ export default function RegisterPage() {
                 }
               />
 
-              <Button
-                className="button"
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                style={{ backgroundColor: "black" }}
-              >
-                Sign Up
-              </Button>
+              {isLoading ? (
+                <>
+                  <Box sx={{ display: "flex" }}>
+                    <CircularProgress />
+                  </Box>
+                </>
+              ) : (
+                <Button
+                  className="button"
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  style={{ backgroundColor: "black" }}
+                >
+                  Sign Up
+                </Button>
+              )}
               <Grid container>
                 <Grid item>
                   <span id="styled-link" onClick={() => navigate("/")}>

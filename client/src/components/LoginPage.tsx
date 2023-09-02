@@ -9,6 +9,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const defaultTheme = createTheme();
 
@@ -23,10 +24,13 @@ export default function LoginPage() {
     password: "",
   });
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsLoading(true);
 
     axios
       .post(
@@ -41,8 +45,12 @@ export default function LoginPage() {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("userName", userDetails.userName);
         navigate("/expense-tracker");
+        setIsLoading(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false);
+      });
   };
 
   if (localStorage.getItem("userName")) {
@@ -127,26 +135,26 @@ export default function LoginPage() {
                   })
                 }
               />
-              {/* <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              /> */}
-              <Button
-                className="button"
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                style={{ backgroundColor: "black" }}
-              >
-                Sign In
-              </Button>
+              {isLoading ? (
+                <>
+                  <Box sx={{ display: "flex" }}>
+                    <CircularProgress />
+                  </Box>
+                </>
+              ) : (
+                <Button
+                  className="button"
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  style={{ backgroundColor: "black" }}
+                >
+                  Sign In
+                </Button>
+              )}
+
               <Grid container>
-                {/* <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid> */}
                 <Grid item>
                   <span id="styled-link" onClick={() => navigate("/register")}>
                     {"Don't have an account? Sign Up"}
