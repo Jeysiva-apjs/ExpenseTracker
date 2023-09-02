@@ -20,6 +20,9 @@ app.use((0, cors_1.default)({
 app.use(express_1.default.json());
 const DB_URL = process.env.DB_URL;
 const PORT = process.env.PORT;
+app.get("/", (req, res) => {
+    return res.send("Express Typescript on Vercel");
+});
 app.use("/user", user_1.default);
 app.use("/expense", expense_1.default);
 mongoose_1.default
