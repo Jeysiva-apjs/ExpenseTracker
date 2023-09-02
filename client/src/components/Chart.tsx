@@ -42,7 +42,7 @@ export default function Chart({ filteredExpenses, filterCategory }: Props) {
 
   return (
     <>
-      <div className="body">
+      <div className="body chart">
         <PieChart
           series={[
             {
