@@ -29,7 +29,7 @@ export default function RegisterPage() {
 
     await axios
       .post(
-        "https://jeysiva-expense-tracker.vercel.app/user/signup",
+        "https://jeysiva-expense-tracker-server.vercel.app/user/signup",
         userDetails
       )
       .then((res) => {

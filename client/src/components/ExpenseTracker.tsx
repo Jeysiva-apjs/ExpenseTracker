@@ -30,7 +30,7 @@ const ExpenseTracker = () => {
   useEffect(() => {
     axios
       .get(
-        "jeysiva-expense-tracker-server-nqxdqrkzi-jeysiva-apjs.vercel.app/expense/expenses",
+        "https://jeysiva-expense-tracker-server.vercel.app/expense/expenses",
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
@@ -49,7 +49,7 @@ const ExpenseTracker = () => {
   const handleSubmit = () => {
     axios
       .post(
-        "jeysiva-expense-tracker-server-nqxdqrkzi-jeysiva-apjs.vercel.app/expense/add",
+        "https://jeysiva-expense-tracker-server.vercel.app/expense/add",
         expenseFormData,
         {
           headers: {
@@ -79,7 +79,7 @@ const ExpenseTracker = () => {
 
     axios
       .delete(
-        `jeysiva-expense-tracker-server-nqxdqrkzi-jeysiva-apjs.vercel.app/delete/${id}`,
+        `https://jeysiva-expense-tracker-server.vercel.app/delete/${id}`,
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
