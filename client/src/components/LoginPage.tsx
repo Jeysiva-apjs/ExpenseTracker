@@ -68,8 +68,7 @@ export default function LoginPage() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage:
-              "url(https://images2.alphacoders.com/124/1240705.jpg)",
+            backgroundImage: "home.jpg",
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
               t.palette.mode === "light"

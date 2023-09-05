@@ -64,8 +64,7 @@ export default function RegisterPage() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage:
-              "url(https://images2.alphacoders.com/124/1240705.jpg)",
+            backgroundImage: "url(home.jpg)",
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
               t.palette.mode === "light"
