@@ -161,7 +161,7 @@ export default function LoginPage() {
               <Grid container>
                 <Grid item>
                   <span id="styled-link" onClick={() => navigate("/register")}>
-                    {"Don't have an account? Sign Up"}
+                    {"Don't have an account? Register here"}
                   </span>
                 </Grid>
               </Grid>
