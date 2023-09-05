@@ -90,12 +90,10 @@ export default function LoginPage() {
               alignItems: "center",
             }}
           >
-            <h3 className="title" style={{ margin: 0 }}>
-              Expense Tracker
-            </h3>
-            <p className="quote">Track, Manage and Control</p>
             <h4 className="title">Sign In</h4>
+            <br />
             {error && <p className="errorMsg">{error}</p>}
+            <br />
             <Box
               component="form"
               noValidate
@@ -145,7 +143,7 @@ export default function LoginPage() {
                   sx={{ mt: 3, mb: 2 }}
                   style={{ backgroundColor: "black" }}
                 >
-                  <CircularProgress />
+                  <CircularProgress size={25} />
                 </Button>
               ) : (
                 <Button

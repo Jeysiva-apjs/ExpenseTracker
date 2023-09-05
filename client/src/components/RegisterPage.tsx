@@ -85,13 +85,10 @@ export default function RegisterPage() {
               alignItems: "center",
             }}
           >
-            <h3 className="title" style={{ margin: 0 }}>
-              Expense Tracker
-            </h3>
-            <p className="quote">Track, Manage and Control</p>
             <h4 className="title">Create a new account</h4>
+            <br />
             {error && <p className="errorMsg">{error}</p>}
-
+            <br />
             <Box
               component="form"
               noValidate
@@ -141,7 +138,7 @@ export default function RegisterPage() {
                   sx={{ mt: 3, mb: 2 }}
                   style={{ backgroundColor: "black" }}
                 >
-                  <CircularProgress />
+                  <CircularProgress size={25} />
                 </Button>
               ) : (
                 <Button
@@ -152,7 +149,7 @@ export default function RegisterPage() {
                   sx={{ mt: 3, mb: 2 }}
                   style={{ backgroundColor: "black" }}
                 >
-                  Sign In
+                  Register
                 </Button>
               )}
 
