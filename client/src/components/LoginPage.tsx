@@ -81,7 +81,7 @@ export default function LoginPage() {
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
-            style={{ marginTop: "30px" }}
+            style={{ margin: "20px" }}
             sx={{
               my: 8,
               mx: 4,
