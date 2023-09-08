@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import ExpenseList from "./ExpenseList";
 import ExpenseForm from "./ExpenseForm";
 import "./styles.css";
-import axios from "axios";
+import apiClient from "../services/api-client";
 
 export interface ExpenseType {
   _id: string;
@@ -28,15 +28,12 @@ const ExpenseTracker = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    axios
-      .get(
-        "https://jeysiva-expense-tracker-server.vercel.app/expense/expenses",
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        }
-      )
+    apiClient
+      .get("/expense/expenses", {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((res) => {
         if (res.data.error) {
           setError(res.data.error);
@@ -47,16 +44,12 @@ const ExpenseTracker = () => {
   }, []);
 
   const handleSubmit = () => {
-    axios
-      .post(
-        "https://jeysiva-expense-tracker-server.vercel.app/expense/add",
-        expenseFormData,
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        }
-      )
+    apiClient
+      .post("/expense/add", expenseFormData, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((res) => {
         if (res.data.error) {
           setError(res.data.error);
@@ -77,15 +70,12 @@ const ExpenseTracker = () => {
     const filteredData = expenses.filter((data) => data._id !== id);
     setExpenses(filteredData);
 
-    axios
-      .delete(
-        `https://jeysiva-expense-tracker-server.vercel.app/expense/delete/${id}`,
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        }
-      )
+    apiClient
+      .delete(`/expense/delete/${id}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .catch((err) => {
         console.log(err.message);
         setExpenses(originalData);
