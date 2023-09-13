@@ -68,8 +68,8 @@ export default function Chart({ filteredExpenses, filterCategory }: Props) {
               ],
             },
           ]}
-          width={400}
-          height={200}
+          width={500}
+          height={250}
         />
       </div>
     </>

@@ -80,4 +80,7 @@
   .textBox {
     width: 300px;
   }
+  .chart {
+    display: none;
+  }
 }
