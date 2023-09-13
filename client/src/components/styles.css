@@ -41,7 +41,7 @@
 }
 
 .textBox {
-  width: 300px;
+  width: 400px;
 }
 
 .data {
@@ -74,4 +74,10 @@
 .chart {
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 500px) {
+  .textBox {
+    width: 300px;
+  }
 }
