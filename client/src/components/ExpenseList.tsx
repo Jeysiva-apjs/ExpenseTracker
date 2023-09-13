@@ -41,7 +41,7 @@ export default function ExpenseList({ expenses, deleteExpense }: Props) {
             setFilterCategory={setFilterCategory}
           ></ExpenseFilter>
           <TableContainer component={Paper} className="table">
-            <Table sx={{ minWidth: 350 }} aria-label="customized table">
+            <Table sx={{ minWidth: 400 }} aria-label="customized table">
               <TableHead>
                 <TableRow>
                   <StyledTableCell>Description</StyledTableCell>
