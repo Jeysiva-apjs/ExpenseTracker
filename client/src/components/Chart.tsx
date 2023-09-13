@@ -1,7 +1,6 @@
 import { PieChart } from "@mui/x-charts/PieChart";
 import { useEffect, useState } from "react";
 import { ExpenseType } from "./ExpenseTracker";
-import { Typography } from "@mui/material";
 
 interface Chart {
   groceries: number;
@@ -41,7 +40,7 @@ export default function Chart({ filteredExpenses, filterCategory }: Props) {
   }, [filteredExpenses, filterCategory]);
 
   if (filterCategory !== "All") {
-    return null; // Return null if the filterCategory is not "All"
+    return null;
   }
 
   return (
@@ -72,17 +71,6 @@ export default function Chart({ filteredExpenses, filterCategory }: Props) {
           width={400}
           height={200}
         />
-        <div className="chart-labels">
-          {[
-            { label: "Groceries", value: values.groceries },
-            { label: "Utilities", value: values.utilities },
-            { label: "Entertainment", value: values.entertainment },
-          ].map((item, index) => (
-            <Typography key={index} variant="body2">
-              {item.label}: {item.value.toFixed(0)}%
-            </Typography>
-          ))}
-        </div>
       </div>
     </>
   );

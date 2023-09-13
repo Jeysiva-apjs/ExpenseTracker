@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import ExpenseList from "./ExpenseList";
 import ExpenseForm from "./ExpenseForm";
-import "./styles.css";
+import Box from "@mui/material/Box";
+import Skeleton from "@mui/material/Skeleton";
+import CircularProgress from "@mui/material/CircularProgress";
 import apiClient from "../services/api-client";
+import "./styles.css";
 
 export interface ExpenseType {
   _id: string;
@@ -26,8 +29,11 @@ const ExpenseTracker = () => {
     category: "",
   });
   const [error, setError] = useState("");
+  const [isInitialLoading, setIsInitialLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsInitialLoading(true);
     apiClient
       .get("/expense/expenses", {
         headers: {
@@ -39,11 +45,16 @@ const ExpenseTracker = () => {
           setError(res.data.error);
         }
         setExpenses(res.data);
+        setIsInitialLoading(false);
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        console.log(err.message);
+        setIsInitialLoading(false);
+      });
   }, []);
 
   const handleSubmit = () => {
+    setIsLoading(true);
     apiClient
       .post("/expense/add", expenseFormData, {
         headers: {
@@ -61,8 +72,12 @@ const ExpenseTracker = () => {
           amount: 0,
           category: "",
         });
+        setIsLoading(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false);
+      });
   };
 
   const deleteExpense = (id: string) => {
@@ -89,6 +104,18 @@ const ExpenseTracker = () => {
       </>
     );
   }
+
+  if (isInitialLoading) {
+    return (
+      <>
+        <Box sx={{ width: 400 }}>
+          <Skeleton />
+          <Skeleton animation="wave" />
+          <Skeleton animation={false} />
+        </Box>
+      </>
+    );
+  }
   return (
     <>
       <div className="body">
@@ -97,20 +124,40 @@ const ExpenseTracker = () => {
           setExpenseFormData={setExpenseFormData}
         ></ExpenseForm>
         {error && <p className="errorMsg">{error}</p>}
-        <Button
-          variant="contained"
-          style={{ backgroundColor: "black" }}
-          onClick={handleSubmit}
-        >
-          Add Expense
-        </Button>
-        {expenses.length !== 0 && (
+
+        {isLoading ? (
+          <Button
+            variant="contained"
+            style={{ backgroundColor: "black" }}
+            onClick={handleSubmit}
+          >
+            <CircularProgress size={25} />
+          </Button>
+        ) : (
+          <Button
+            variant="contained"
+            style={{ backgroundColor: "black" }}
+            onClick={handleSubmit}
+          >
+            Add Expense
+          </Button>
+        )}
+
+        {expenses.length !== 0 && !isInitialLoading ? (
           <div className="data">
             <ExpenseList
               expenses={expenses}
               deleteExpense={deleteExpense}
             ></ExpenseList>
           </div>
+        ) : (
+          <>
+            <Box sx={{ width: 400 }}>
+              <Skeleton />
+              <Skeleton animation="wave" />
+              <Skeleton animation={false} />
+            </Box>
+          </>
         )}
       </div>
     </>
