@@ -140,13 +140,13 @@ const ExpenseTracker = () => {
             ></ExpenseList>
           </div>
         ) : (
-          <>
-            <Box sx={{ width: 400 }}>
+          <div style={{ marginTop: "100px" }}>
+            <Box sx={{ width: 600 }}>
               <Skeleton />
               <Skeleton animation="wave" />
               <Skeleton animation={false} />
             </Box>
-          </>
+          </div>
         )}
       </div>
     </>
