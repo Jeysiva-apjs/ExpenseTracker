@@ -133,20 +133,22 @@ const ExpenseTracker = () => {
           </Button>
         )}
 
-        {expenses.length !== 0 && !isInitialLoading ? (
-          <div className="data">
-            <ExpenseList
-              expenses={expenses}
-              deleteExpense={deleteExpense}
-            ></ExpenseList>
-          </div>
-        ) : (
+        {isInitialLoading && (
           <div style={{ marginTop: "100px" }}>
             <Box sx={{ width: 400 }}>
               <Skeleton />
               <Skeleton animation="wave" />
               <Skeleton animation={false} />
             </Box>
+          </div>
+        )}
+
+        {expenses.length !== 0 && (
+          <div className="data">
+            <ExpenseList
+              expenses={expenses}
+              deleteExpense={deleteExpense}
+            ></ExpenseList>
           </div>
         )}
       </div>
