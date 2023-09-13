@@ -64,6 +64,7 @@ const ExpenseTracker = () => {
       .then((res) => {
         if (res.data.error) {
           setError(res.data.error);
+          setIsLoading(false);
           return;
         }
         setExpenses([...expenses, res.data]);
@@ -105,17 +106,6 @@ const ExpenseTracker = () => {
     );
   }
 
-  if (isInitialLoading) {
-    return (
-      <>
-        <Box sx={{ width: 400 }}>
-          <Skeleton />
-          <Skeleton animation="wave" />
-          <Skeleton animation={false} />
-        </Box>
-      </>
-    );
-  }
   return (
     <>
       <div className="body">
@@ -128,8 +118,7 @@ const ExpenseTracker = () => {
         {isLoading ? (
           <Button
             variant="contained"
-            style={{ backgroundColor: "black" }}
-            onClick={handleSubmit}
+            style={{ backgroundColor: "black", minWidth: "64px" }}
           >
             <CircularProgress size={25} />
           </Button>
