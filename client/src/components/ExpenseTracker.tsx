@@ -50,7 +50,8 @@ const ExpenseTracker = () => {
       .catch((err) => {
         console.log(err.message);
         setIsInitialLoading(false);
-      });
+      })
+      .finally(() => setIsInitialLoading(false));
   }, []);
 
   const handleSubmit = () => {
@@ -141,7 +142,7 @@ const ExpenseTracker = () => {
           </div>
         ) : (
           <div style={{ marginTop: "100px" }}>
-            <Box sx={{ width: 600 }}>
+            <Box sx={{ width: 400 }}>
               <Skeleton />
               <Skeleton animation="wave" />
               <Skeleton animation={false} />
