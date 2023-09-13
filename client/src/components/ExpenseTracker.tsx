@@ -134,7 +134,7 @@ const ExpenseTracker = () => {
         )}
 
         {isInitialLoading && (
-          <div style={{ marginTop: "100px" }}>
+          <div style={{ marginTop: "50px" }}>
             <Box sx={{ width: 400 }}>
               <Skeleton />
               <Skeleton animation="wave" />
