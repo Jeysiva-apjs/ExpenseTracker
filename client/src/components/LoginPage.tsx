@@ -44,6 +44,7 @@ export default function LoginPage() {
         localStorage.setItem("userName", userDetails.userName);
         navigate("/expense-tracker");
         setIsLoading(false);
+        setError("");
       })
       .catch((err) => {
         console.error(err);

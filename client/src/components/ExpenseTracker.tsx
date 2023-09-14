@@ -43,15 +43,16 @@ const ExpenseTracker = () => {
       .then((res) => {
         if (res.data.error) {
           setError(res.data.error);
+          return;
         }
         setExpenses(res.data);
+        setError("");
         setIsInitialLoading(false);
       })
       .catch((err) => {
         console.log(err.message);
         setIsInitialLoading(false);
-      })
-      .finally(() => setIsInitialLoading(false));
+      });
   }, []);
 
   const handleSubmit = () => {
@@ -74,6 +75,7 @@ const ExpenseTracker = () => {
           amount: 0,
           category: "",
         });
+        setError("");
         setIsLoading(false);
       })
       .catch((err) => {
