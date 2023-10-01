@@ -8,7 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { ExpenseType } from "./ExpenseTracker";
+import { ExpenseType } from "./index";
 import ExpenseFilter from "./ExpenseFilter";
 import "./styles.css";
 import Chart from "./Chart";

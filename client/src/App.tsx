@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ExpenseTracker from "./components/ExpenseTracker";
-import LoginPage from "./components/LoginPage";
-import RegisterPage from "./components/RegisterPage";
-import Appbar from "./components/Appbar";
+import LoginPage from "./components/ExpenseTracker/LoginPage";
+import RegisterPage from "./components/ExpenseTracker/RegisterPage";
+import Appbar from "./components/ExpenseTracker/Appbar";
 const App = () => {
   return (
     <div>

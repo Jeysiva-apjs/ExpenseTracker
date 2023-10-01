@@ -4,8 +4,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import categories from "../categories";
-import { FormType } from "./ExpenseTracker";
+import categories from "./categories";
+import { FormType } from "./index";
 import "./styles.css";
 
 interface Props {

@@ -1,15 +1,15 @@
 import { useState } from "react";
-import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
+import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
-import apiClient from "../services/api-client";
+import apiClient from "./api-client";
 
 const defaultTheme = createTheme();
 
@@ -18,7 +18,7 @@ interface User {
   password: string;
 }
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [userDetails, setUserDetails] = useState<User>({
     userName: "",
     password: "",
@@ -28,12 +28,12 @@ export default function LoginPage() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
 
-    apiClient
-      .post("/user/login", userDetails)
+    await apiClient
+      .post("/user/signup", userDetails)
       .then((res) => {
         if (res.data.error) {
           setError(res.data.error);
@@ -47,14 +47,10 @@ export default function LoginPage() {
         setError("");
       })
       .catch((err) => {
-        console.error(err);
+        console.error(err.message);
         setIsLoading(false);
       });
   };
-
-  if (localStorage.getItem("userName")) {
-    navigate("/expense-tracker");
-  }
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -87,7 +83,7 @@ export default function LoginPage() {
               alignItems: "center",
             }}
           >
-            <h4 className="title">Sign In</h4>
+            <h4 className="title">Create a new account</h4>
             <br />
             {error && <p className="errorMsg">{error}</p>}
             <br />
@@ -151,14 +147,14 @@ export default function LoginPage() {
                   sx={{ mt: 3, mb: 2 }}
                   style={{ backgroundColor: "black" }}
                 >
-                  Sign In
+                  Register
                 </Button>
               )}
 
               <Grid container>
                 <Grid item>
-                  <span id="styled-link" onClick={() => navigate("/register")}>
-                    {"Don't have an account? Register here"}
+                  <span id="styled-link" onClick={() => navigate("/")}>
+                    {"Already have an account? Sign In here"}
                   </span>
                 </Grid>
               </Grid>

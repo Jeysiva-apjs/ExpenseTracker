@@ -1,6 +1,6 @@
 import { PieChart } from "@mui/x-charts/PieChart";
 import { useEffect, useState } from "react";
-import { ExpenseType } from "./ExpenseTracker";
+import { ExpenseType } from "./index";
 
 interface Chart {
   groceries: number;
