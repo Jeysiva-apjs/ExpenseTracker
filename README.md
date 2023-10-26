@@ -1,7 +1,8 @@
 # ExpenseTracker
 A expense tracker full -stack application. 
 
-Checkout the live site:- https://jeysiva-expense-tracker.vercel.app/
+- Demo video :- https://youtu.be/weH07vbxF9A?si=EebZBtSe7ZWzrm8k
+- Checkout the live site:- https://jeysiva-expense-tracker.vercel.app/
 
 📌  𝐊𝐞𝐲 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬:
 
