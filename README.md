@@ -5,11 +5,11 @@ Checkout the live site:- https://jeysiva-expense-tracker.vercel.app/
 
 📌  𝐊𝐞𝐲 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬:
 
-1️. 𝐀𝐝𝐝 𝐄𝐱𝐩𝐞𝐧𝐬𝐞𝐬 𝐯𝐢𝐚 𝐂𝐚𝐭𝐞𝐠𝐨𝐫𝐢𝐞𝐬: To organise your spending.
+1. 𝐀𝐝𝐝 𝐄𝐱𝐩𝐞𝐧𝐬𝐞𝐬 𝐯𝐢𝐚 𝐂𝐚𝐭𝐞𝐠𝐨𝐫𝐢𝐞𝐬: To organise your spending.
 2. 𝐕𝐢𝐞𝐰 𝐚𝐥𝐥 𝐞𝐱𝐩𝐞𝐧𝐬𝐞𝐬 𝐢𝐧 𝐚 𝐭𝐚𝐛𝐥𝐞: Get an overview of your spending with the total expenses displayed.
-3️. 𝐂𝐚𝐭𝐞𝐠𝐨𝐫𝐲-𝐬𝐩𝐞𝐜𝐢𝐟𝐢𝐜 𝐄𝐱𝐩𝐞𝐧𝐬𝐞 𝐋𝐢𝐬𝐭𝐬: Easily check your expenses for a specific category.
-4️. 𝐏𝐢𝐞 𝐂𝐡𝐚𝐫𝐭𝐬: Visualize your expenses with pie charts for better insights.
-5️. 𝐃𝐞𝐥𝐞𝐭𝐞 𝐄𝐱𝐩𝐞𝐧𝐬𝐞𝐬: Mistakes happen; remove any unwanted expenses effortlessly.
+3. 𝐂𝐚𝐭𝐞𝐠𝐨𝐫𝐲-𝐬𝐩𝐞𝐜𝐢𝐟𝐢𝐜 𝐄𝐱𝐩𝐞𝐧𝐬𝐞 𝐋𝐢𝐬𝐭𝐬: Easily check your expenses for a specific category.
+4. 𝐏𝐢𝐞 𝐂𝐡𝐚𝐫𝐭𝐬: Visualize your expenses with pie charts for better insights.
+5. 𝐃𝐞𝐥𝐞𝐭𝐞 𝐄𝐱𝐩𝐞𝐧𝐬𝐞𝐬: Mistakes happen; remove any unwanted expenses effortlessly.
 
 💡 𝐓𝐞𝐜𝐡𝐧𝐨𝐥𝐨𝐠𝐢𝐞𝐬 𝐔𝐬𝐞𝐝:
 
